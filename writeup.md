@@ -29,24 +29,29 @@ Example image from the road is as below
 My pipeline consists of 5 steps. 
 1.  Convert rgb image to the grayscale image 
 
-[image2]: ./images_output/blurgray_solidWhiteRight.jpg "BlurGrayscaleSolidWhiteRight"
+[image2]: ./images_output/gray_solidWhiteRight.jpg "GrayscaleSolidWhiteRight"
 ![alt text][image2]
 
 2.  Apply Gaussian smoothing to get smooth edges
 
-[image3]: ./images_output/masked_edges_solidWhiteRight.jpg "MaskedGrayscaleSolidWhiteRight"
+[image3]: ./images_output/blurgray_solidWhiteRight.jpg "BlurGrayscaleSolidWhiteRight"
 ![alt text][image3]
+
 
 3. Apply Canny Edge detection algorithm to find edges 
 4. Mask the image to find road lines (Filter the out of interest area)
 
-[image4]: ./images_output/houghlines_solidWhiteRight.jpg "HoughscaleSolidWhiteRight"
+[image4]: ./images_output/masked_edges_solidWhiteRight.jpg "MaskedGrayscaleSolidWhiteRight"
 ![alt text][image4]
+
 
 5. Apply Hough Transform to find lines from the edges 
 
 [image5]: ./images_output/redlines_solidWhiteRight.jpg "RedscaleSolidWhiteRight"
 ![alt text][image5]
+
+[image6]: ./images_output/houghlines_solidWhiteRight.jpg "HoughscaleSolidWhiteRight"
+![alt text][image6]
 
 At the end of these algorithm steps, we obtain line points (x1,x2,y1,y2) from Hough transform. 
 The output lines can be one solid line or split lines. 
@@ -57,9 +62,9 @@ In order to draw a single line on the left and right lanes, I modified the draw_
 
 The output is as follows;
 
-[image6]: ./images_output/process_image.jpg "Process"
+[image7]: ./images_output/process_image.jpg "Process"
 
-![alt text][image6]
+![alt text][image7]
 
 
 ### 2. Identify potential shortcomings with your current pipeline
