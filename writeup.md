@@ -33,25 +33,30 @@ My pipeline consists of 5 steps.
 ![alt text][image2]
 
 2.  Apply Gaussian smoothing to get smooth edges
+
 [image3]: ./images_output/masked_edges_solidWhiteRight.jpg "MaskedGrayscaleSolidWhiteRight"
 ![alt text][image3]
+
 3. Apply Canny Edge detection algorithm to find edges 
 4. Mask the image to find road lines (Filter the out of interest area)
+
 [image4]: ./images_output/houghlines_solidWhiteRight.jpg "HoughscaleSolidWhiteRight"
 ![alt text][image4]
+
 5. Apply Hough Transform to find lines from the edges 
+
 [image5]: ./images_output/redlines_solidWhiteRight.jpg "RedscaleSolidWhiteRight"
 ![alt text][image5]
+
 At the end of these algorithm steps, we obtain line points (x1,x2,y1,y2) from Hough transform. 
 The output lines can be one solid line or split lines. 
 In order to draw a single line on the left and right lanes, I modified the draw_lines() function, applying avarage and extrapolation calculations. The steps are:
 1. The left lines and right lines are found according to slope values. The line shows the left line if the slope is less than -0.5 and higher than -3.  The positive thresholds (0.5 - 3) are applied to find right lines
 2. The left and right line points are seperated and collected in different lists. The avarage line points are calculated with these point lists. Avarage slope is calculated from avarage points.
 4. Extrapolated line points are calculated with avarage points. The bottom(y=540) and top (y=330) of the lines are known as the region of interest decides these y points. With the help of extrapolation equation, upper and lower x points are found.  
-	
-![formula](https://render.githubusercontent.com/render/math?math= x_end = (yend-y_avarage)\m_avarage + x1)
 
 The output is as follows;
+
 [image6]: ./images_output/process_image.jpg "Process"
 
 ![alt text][image6]
